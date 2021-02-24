@@ -1,4 +1,3 @@
-/*
 import { useDrag } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
 const style = {
@@ -23,4 +22,3 @@ export const SourceBox = ({ showCopyIcon }) => {
 			When I am over a drop zone, I have {showCopyIcon ? 'copy' : 'no'} icon.
 		</div>);
 };
-*/

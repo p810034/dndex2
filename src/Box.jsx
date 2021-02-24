@@ -10,6 +10,6 @@ const style = {
 export const Box = () => {
     const [, drag] = useDrag(() => ({ item: { type: ItemTypes.BOX } }));
     return (<div ref={drag} style={style}>
-			Drag me
+			text
 		</div>);
 };

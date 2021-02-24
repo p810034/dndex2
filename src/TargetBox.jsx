@@ -1,28 +1,14 @@
 import { useState } from 'react';
 import { useDrop } from 'react-dnd';
 import { ItemTypes } from './ItemTypes';
+import Draggable from 'react-draggable';
 const style = {
     border: '1px solid gray',
-    height: '15rem',
-    width: '15rem',
+    height: '30rem',
+    width: '30rem',
     padding: '2rem',
     textAlign: 'center',
 };
-function getStyle(backgroundColor) {
-    return {
-        border: '1px solid rgba(0,0,0,0.2)',
-        minHeight: '8rem',
-        minWidth: '8rem',
-        color: 'white',
-        backgroundColor,
-        padding: '2rem',
-        paddingTop: '1rem',
-        margin: '1rem',
-        textAlign: 'center',
-        float: 'left',
-        fontSize: '1rem',
-    };
-}
 
 export const TargetBox = ({children}) => {
     const [hasDropped, setHasDropped] = useState(false);
@@ -42,14 +28,13 @@ export const TargetBox = ({children}) => {
             isOverCurrent: monitor.isOver({ shallow: true }),
         }),
     }), [setHasDropped, setHasDroppedOnChild]);
-    let backgroundColor = 'rgba(0, 0, 0, .5)';
-    if (isOverCurrent || (isOver)) {
-        backgroundColor = 'darkgreen';
-    }
-    return (<div ref={drop} style={style}>
-			<br />
-			{hasDropped && <span>dropped {hasDroppedOnChild && ' on child'}</span>}
-            {hasDropped && <input type="button" value="Click me" onclick="msg()" />}
-			<div>{children}</div>
-		</div>);
+    return (
+        
+            <div ref={drop} style={style}>
+			    <br />
+                {hasDropped && <input type="text" name="text" />}
+			    <div>{children}</div>
+		    </div>
+        
+        );
 };
